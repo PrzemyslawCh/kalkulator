@@ -1,4 +1,5 @@
 //variables
+
 const digits = document.querySelectorAll('.digit')
 const operators = document.querySelectorAll('.operator')
 const clean = document.querySelector('.clean')
@@ -12,7 +13,7 @@ let currentOperation =''
 let previousOperation =''
 let operation 
 
-
+//functions
 
 const calculate = () => {
     let calculation
@@ -57,12 +58,7 @@ const chooseOperation = (operator) => {
     if(currentOperation === ''){
         return
     }
-    if(previousOperation !== ''){
-        const previous = resultPrevious.innerText
-        if(currentOperation.toString() === '0' && previous[previous.length - 1] === '/'){
-            cleanResult()
-            return
-        }
+    if(previousOperation !== ''){        
         calculate()
     }
     operation = operator
@@ -72,7 +68,6 @@ const chooseOperation = (operator) => {
 
 const updateResult = () => {
     resultCurrent.innerText = currentOperation
-
     if(operation != null){
         resultPrevious.innerText = previousOperation + operation
     }
@@ -98,6 +93,8 @@ const deletedigit = () => {
     currentOperation = currentOperation.toString().slice(0, -1)
 }
 
+//buttons functionalities
+
 digits.forEach((digit) =>{
     digit.addEventListener('click', () =>{
         addNumber(digit.innerText)
@@ -111,17 +108,17 @@ operators.forEach((operator) => {
         updateResult()
     })
 })
-// deletes last digit
+
 del.addEventListener('click', () =>{
     deletedigit()
     updateResult()
 })
-// calculates 
+
 equals.addEventListener('click', () =>{
     calculate()
     updateResult()
 })
-// 
+
 clean.addEventListener('click', () =>{
     cleanResult()
     updateResult()

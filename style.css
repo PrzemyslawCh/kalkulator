@@ -35,6 +35,11 @@ body{
     font-weight: 400;
     color: black;
 }
+.previous-operation{
+    font-size: 20px;
+    font-weight: 300;
+    color: #333533;
+}
 button{
     cursor: pointer;
     border: 1px solid #333533;
