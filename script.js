@@ -17,6 +17,7 @@ let operation
 
 const calculate = () => {
     let calculation
+    
     if(!previousOperation || !currentOperation) {
       return
     }
